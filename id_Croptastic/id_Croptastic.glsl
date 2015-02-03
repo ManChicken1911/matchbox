@@ -7,7 +7,7 @@ uniform      vec2  crop_tl, crop_br, offset_xy;
 uniform     float  adsk_result_w, adsk_result_h;
 uniform      bool  border;
 uniform      vec3  border_color;
-uniform     float  border_size;
+uniform     float  border_size, border_trans;
 
 //
 
@@ -30,13 +30,14 @@ void main(void) {
         px = vec4(0.0, 0.0, 0.0, 0.0);
 
     if( border ) {
+
         if( (gl_FragCoord.x >= crop_l && gl_FragCoord.x <= crop_l + border_size) || (gl_FragCoord.x <= (adsk_result_w - crop_r) && gl_FragCoord.x >= (adsk_result_w - crop_r) - border_size) )
             if( gl_FragCoord.y >= crop_b && gl_FragCoord.y <= adsk_result_h - crop_t )
-                px = vec4( border_color, 1.0 );
+                px = vec4( mix( px, vec4( border_color, 1.0 ), (border_trans / 100.0) ) );
 
         if( (gl_FragCoord.y >= crop_b && gl_FragCoord.y <= crop_b + border_size) || (gl_FragCoord.y <= (adsk_result_h - crop_t) && gl_FragCoord.y >= (adsk_result_h - crop_t) - border_size) )
-            if( gl_FragCoord.x > crop_l && gl_FragCoord.x <= adsk_result_w - crop_r )
-                px = vec4( border_color, 1.0 );
+            if( gl_FragCoord.x >= crop_l + border_size && gl_FragCoord.x <= (adsk_result_w - crop_r) - border_size )
+                px = vec4( mix( px, vec4( border_color, 1.0 ), (border_trans / 100.0) ) );
     }
 
     gl_FragColor = px;

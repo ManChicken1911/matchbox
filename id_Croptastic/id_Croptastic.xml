@@ -28,10 +28,13 @@ Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
          Min="0.0" Max="10000.0" Inc="1.0" Row="1" Col="2" Page="0">
       </Uniform>
       <Uniform Name="border_color" DisplayName="Color" Type="vec3" ValueType="Colour" Tooltip="Border Color"
-         Row="3" Col="2" Page="0">
+         Row="2" Col="2" Page="0">
          <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
          <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
          <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+      </Uniform>
+      <Uniform Name="border_trans" DisplayName="Opacity" Type="float" Tooltip="Border Opacity" Default="100.0"
+         Inc="1.00" Min="0.0" Max="100.0" Row="3" Col="2" Page="0">
       </Uniform>
 
       <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Error" InputType="Front"
