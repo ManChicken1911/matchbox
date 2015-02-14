@@ -2,6 +2,8 @@
 
 Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
    <Shader OutputBitDepth="Output" Index="1">
+
+      <!-- Tab 1 Col 1: Crop Sizes -->
       <Uniform Name="crop_l" Type="float" DisplayName="Left" Tooltip="Left side crop amount (pixels)"
         Min="0.0" Max="10000.0" Inc="1.00" Row="0" Col="0" Page="0" IconType="None">
       </Uniform>
@@ -15,12 +17,14 @@ Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
         Min="0.0" Max="10000.0" Inc="1.00" Row="3" Col="0" Page="0" IconType="None">
       </Uniform>
 
+      <!-- Tab 1 Col 2: Offset -->
       <Uniform Name="offset_xy" Type="vec2" DisplayName="Offset" Tooltip="X/Y Offset Amount"
          Inc="1.0" Row="0" Col="1" Page="0" IconType="None">
          <SubUniform ResDependent="None" Max="10000.0" Min="-10000.0" Default="0.0"></SubUniform>
          <SubUniform ResDependent="None" Max="10000.0" Min="-10000.0" Default="0.0"></SubUniform>
       </Uniform>
 
+      <!-- Tab 1 Col 3: Border (Simple) -->
       <Uniform Name="border" DisplayName="Border" Type="bool" Tooltip="Enable Border" Default="False"
          Row="0" Col="2" Page="0">
       </Uniform>
@@ -36,6 +40,78 @@ Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
       <Uniform Name="border_trans" DisplayName="Opacity" Type="float" Tooltip="Border Opacity" Default="100.0"
          Inc="1.00" Min="0.0" Max="100.0" Row="3" Col="2" Page="0">
       </Uniform>
+      <Uniform Name="border_overadv" DisplayName="Over Advanced Borders" Type="bool" Tooltip="Renders the simple border on top of Advanced Borders" Default="True"
+         Row="4" Col="2" Page="0">
+      </Uniform>
+
+
+      <!-- Tab 2 Col 1: Advanced Borders -->
+      <Uniform Name="aborder_l" DisplayName="Enable Left" Type="bool" Default="False"
+         Row="0" Col="0" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_r" DisplayName="Enable Right" Type="bool" Default="False"
+         Row="1" Col="0" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_t" DisplayName="Enable Top" Type="bool" Default="False"
+         Row="2" Col="0" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_b" DisplayName="Enable Bottom" Type="bool" Default="False"
+         Row="3" Col="0" Page="1">
+      </Uniform>
+
+      <!-- Tab 2 Col 2: Border Sizes -->
+      <Uniform Name="aborder_lsize" DisplayName="Left" Type="float" Tooltip="Border Size" Default="10"
+         Min="0.0" Max="10000.0" Inc="1.0" Row="0" Col="1" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_rsize" DisplayName="Right" Type="float" Tooltip="Border Size" Default="10"
+         Min="0.0" Max="10000.0" Inc="1.0" Row="1" Col="1" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_tsize" DisplayName="Top" Type="float" Tooltip="Border Size" Default="10"
+         Min="0.0" Max="10000.0" Inc="1.0" Row="2" Col="1" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_bsize" DisplayName="Bottom" Type="float" Tooltip="Border Size" Default="10"
+         Min="0.0" Max="10000.0" Inc="1.0" Row="3" Col="1" Page="1">
+      </Uniform>
+
+      <!-- Tab 2 Col 3: Border Colors -->
+      <Uniform Name="aborder_lcolor" DisplayName="Left" Type="vec3" ValueType="Colour" Tooltip="Border Color"
+         Row="0" Col="2" Page="1">
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+      </Uniform>
+      <Uniform Name="aborder_rcolor" DisplayName="Right" Type="vec3" ValueType="Colour" Tooltip="Border Color"
+         Row="1" Col="2" Page="1">
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+      </Uniform>
+      <Uniform Name="aborder_tcolor" DisplayName="Top" Type="vec3" ValueType="Colour" Tooltip="Border Color"
+         Row="2" Col="2" Page="1">
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+      </Uniform>
+      <Uniform Name="aborder_bcolor" DisplayName="Bottom" Type="vec3" ValueType="Colour" Tooltip="Border Color"
+         Row="3" Col="2" Page="1">
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+      </Uniform>
+
+      <!-- Tab 2 Col 4: Border Opacities -->
+      <Uniform Name="aborder_ltrans" DisplayName="Left" Type="float" Tooltip="Border Opacity" Default="100.0"
+         Inc="1.00" Min="0.0" Max="100.0" Row="0" Col="3" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_rtrans" DisplayName="Right" Type="float" Tooltip="Border Opacity" Default="100.0"
+         Inc="1.00" Min="0.0" Max="100.0" Row="1" Col="3" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_ttrans" DisplayName="Top" Type="float" Tooltip="Border Opacity" Default="100.0"
+         Inc="1.00" Min="0.0" Max="100.0" Row="2" Col="3" Page="1">
+      </Uniform>
+      <Uniform Name="aborder_btrans" DisplayName="Bottom" Type="float" Tooltip="Border Opacity" Default="100.0"
+         Inc="1.00" Min="0.0" Max="100.0" Row="3" Col="3" Page="1">
+      </Uniform>
 
       <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Error" InputType="Front"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
@@ -45,9 +121,14 @@ Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
       </Uniform>
    </Shader>
 
-   <Page Name="Page 1" Page="0">
+   <Page Name="Crop &amp; Offset" Page="0">
       <Col Name="Cropping" Col="0" Page="0"></Col>
       <Col Name="Texture" Col="1" Page="0"></Col>
       <Col Name="Border" Col="2" Page="0"></Col>
+   </Page>
+   <Page Name="Advanced Borders" Page="1">
+      <Col Name="Size" Col="1" Page="1"></Col>
+      <Col Name="Color" Col="2" Page="1"></Col>
+      <Col Name="Opacity" Col="3" Page="1"></Col>
    </Page>
 </ShaderNodePreset>
