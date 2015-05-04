@@ -1,0 +1,24 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Premultiply" Description="Premultiplies or Unpremultiplies the Front input by the Matte input and outputs the result of both.
+
+Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
+   <Shader OutputBitDepth="Output" Index="1">
+
+      <!-- Input Configuration -->
+      <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Error" InputType="Front"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
+      </Uniform>
+      <Uniform Name="unused" Type="sampler2D" DisplayName="Unused" Index="1" NoInput="Black" InputColor="86,86,86"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
+      </Uniform>
+      <Uniform Name="in_matte" Type="sampler2D" DisplayName="Matte" Index="2" NoInput="White" InputType="Matte"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
+      </Uniform>
+
+      <!-- UI -->
+      <Uniform Name="op_mode" Type="int" ValueType="Popup" DisplayName="Mode" Index="0" Page="0" Col="0" Row="0" Default="1">
+      	<PopupEntry Title="Unpremultiply" Value="0"></PopupEntry>
+      	<PopupEntry Title="Premultiply" Value="1"></PopupEntry>
+      </Uniform>
+
+   </Shader>
+</ShaderNodePreset>
