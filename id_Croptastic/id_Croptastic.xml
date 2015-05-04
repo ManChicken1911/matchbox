@@ -1,4 +1,4 @@
-<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Croptastic" Description="A simple image cropper with built-in 2D texture offset. It's Croptastic!
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Croptastic" Description="A simple image cropper with built-in 2D texture offset and borders. It's Croptastic!
 
 Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
    <Shader OutputBitDepth="Output" Index="1">
