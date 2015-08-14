@@ -19,6 +19,12 @@ Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
       	<PopupEntry Title="Unpremultiply" Value="0"></PopupEntry>
       	<PopupEntry Title="Premultiply" Value="1"></PopupEntry>
       </Uniform>
+      <Uniform Name="bg_color" DisplayName="BG Color" Type="vec3" ValueType="Colour" Tooltip="Background Color"
+         Row="0" Col="1" Page="0">
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
+      </Uniform>
 
    </Shader>
 </ShaderNodePreset>

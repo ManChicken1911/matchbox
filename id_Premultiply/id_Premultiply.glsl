@@ -4,6 +4,7 @@
 uniform sampler2D  in_front, in_matte;
 uniform     float  adsk_result_w, adsk_result_h;
 uniform       int  op_mode;
+uniform      vec3  bg_color;
 
 //
 
@@ -16,8 +17,8 @@ void main(void) {
     vec4 px  = vec4( texture2D( in_front, uv ).rgb, texture2D( in_matte, uv ).g );
 
     if( op_mode == 1 )
-      gl_FragColor = vec4( (px.rgb * px.a), px.a );  // Premultiply
+      gl_FragColor = vec4( (px.rgb * px.a) + (bg_color * (1.0 - px.a)), px.a );    // Premultiply
     else
-      gl_FragColor = vec4( (px.rgb / px.a), px.a );  // Unpremultiply
+      gl_FragColor = vec4( ((px.rgb - (bg_color * (1.0 - px.a))) / px.a), px.a );  // Unpremultiply
 
 }
