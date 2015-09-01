@@ -1,5 +1,5 @@
 // Premultiply (C)2015 Bob Maple
-// bobm-matchbox@idolum.com
+// bobm-matchbox [at] idolum.com
 
 uniform sampler2D  in_front, in_matte;
 uniform     float  adsk_result_w, adsk_result_h;

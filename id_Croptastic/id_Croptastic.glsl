@@ -1,5 +1,5 @@
 // Croptastic (C)2015 Bob Maple
-// bobm-matchbox@idolum.com
+// bobm-matchbox [at] idolum.com
 
 uniform sampler2D  in_front, in_matte;
 uniform	    float  crop_l, crop_r, crop_t, crop_b;

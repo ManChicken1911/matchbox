@@ -1,6 +1,7 @@
-<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Premultiply" Description="Premultiplies or Unpremultiplies the Front input by the Matte input and outputs the result of both.
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Premultiply" CommercialUsePermitted="True"
+Description="Premultiplies or Unpremultiplies the Front input by the Matte input and outputs the result of both.
 
-Matchbox by Bob Maple (bobm-matchbox@idolum.com)">
+Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
    <Shader OutputBitDepth="Output" Index="1">
 
       <!-- Input Configuration -->
