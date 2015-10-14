@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
-# COMPILE-2015.command by Bob Maple
-# Compiles and installs Matchbox and Lightbox shaders from http://logik-matchbook.org/
+# COMPILE-2016.command by Bob Maple
+# Compiles and installs Matchbox and Lightbox shaders from http://logik-matchbook.org/ into IFFFS 2016 versions
 # Place in the same directory of the download as INSTALL.command and run instead.
 
 import os, glob, shlex, subprocess, sys, shutil, re
@@ -91,10 +91,23 @@ print
 # ---- Begin Compiler/Installer ---- #
 #
 
+# Read a list of shaders to skip
+
+if os.access( "skip-shaders.cfg", os.F_OK ):
+    print( "Reading skip-shaders.cfg\n" )
+    tmp_fp = open( "skip-shaders.cfg", 'r' )
+    skip_shaders = tmp_fp.readlines()
+    tmp_fp.close()
+
+else:
+    skip_shaders = False
+
+
 for shader_file in files:
 
     do_install = False
     do_compile = False
+    do_skip    = False
 
     # Get the name of the shader without extension
     regex = re.search('(.*)\.glsl', shader_file)
@@ -127,7 +140,21 @@ for shader_file in files:
         do_compile = True
 
     if do_compile:
+
+        # Check whether we should actually skip this shader
+
+        if( skip_shaders != False ):
+            for tmp_skip in skip_shaders:
+                if( tmp_skip.strip().lower() == shader_name.lower() ):
+                    do_skip = True
+                    break
+
+            if( do_skip == True ):
+                print( "\033[94mSkipping shader          : %s\033[0m" % shader_name )
+                continue
+
         # Now figure out if it's a Matchbox or a Lightbox shader
+
         shader_type = "-m"
         shader_type_name = "matchbox"
 
