@@ -117,7 +117,10 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
       <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Error" InputType="Front"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
       </Uniform>
-      <Uniform Name="in_matte" Type="sampler2D" DisplayName="Matte" Index="1" NoInput="White" InputType="Matte"
+      <Uniform Name="unused" Type="sampler2D" DisplayName="Unused" Index="1" NoInput="Error" InputColor="86,86,86"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
+      </Uniform>
+      <Uniform Name="in_matte" Type="sampler2D" DisplayName="Matte" Index="2" NoInput="White" InputType="Matte"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
       </Uniform>
    </Shader>
