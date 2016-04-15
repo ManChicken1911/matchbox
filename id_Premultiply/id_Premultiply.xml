@@ -26,6 +26,8 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
          <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
          <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
       </Uniform>
-
+      <Uniform Name="do_clamp" DisplayName="Clamp Output" Type="bool" Tooltip="Clamp output values from 0.0 to 1.0" Default="True"
+         Row="0" Col="2" Page="0">
+      </Uniform>
    </Shader>
 </ShaderNodePreset>
