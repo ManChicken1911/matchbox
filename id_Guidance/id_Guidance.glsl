@@ -24,11 +24,11 @@ void main(void) {
 
     // Figure out where to draw the guides
 
-    int guide_rx = ((adsk_result_w / 2) + (amount_h / 2));
-    int guide_lx = ((adsk_result_w / 2) - (amount_h / 2) - 1);
+    int guide_rx = int(((adsk_result_w / 2) + (amount_h / 2)));
+    int guide_lx = int(((adsk_result_w / 2) - (amount_h / 2) - 1));
 
-    int guide_uy = ((adsk_result_h / 2) + (amount_v / 2));
-    int guide_ly = ((adsk_result_h / 2) - (amount_v / 2) - 1);
+    int guide_uy = int(((adsk_result_h / 2) + (amount_v / 2)));
+    int guide_ly = int(((adsk_result_h / 2) - (amount_v / 2) - 1));
 
     // Add the guide offsets
 
@@ -45,8 +45,8 @@ void main(void) {
 		if( int(floor(gl_FragCoord.x)) == guide_lx || int(floor(gl_FragCoord.x)) == guide_rx )
 			px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 
-	if( thicker )
-		if( int(floor(gl_FragCoord.x)) == guide_lx-1 || int(floor(gl_FragCoord.x)) == guide_rx+1 )
+		if( thicker )
+			if( int(floor(gl_FragCoord.x)) == guide_lx-1 || int(floor(gl_FragCoord.x)) == guide_rx+1 )
 				px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 	}
 
