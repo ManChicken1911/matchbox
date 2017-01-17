@@ -42,21 +42,21 @@ void main(void) {
 
 	if( enable_v ) {
 
-		if( (int)floor(gl_FragCoord.x) == guide_lx || (int)floor(gl_FragCoord.x) == guide_rx )
+		if( int(floor(gl_FragCoord.x)) == guide_lx || int(floor(gl_FragCoord.x)) == guide_rx )
 			px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 
 	if( thicker )
-		if( (int)floor(gl_FragCoord.x) == guide_lx-1 || (int)floor(gl_FragCoord.x) == guide_rx+1 )
+		if( int(floor(gl_FragCoord.x)) == guide_lx-1 || int(floor(gl_FragCoord.x)) == guide_rx+1 )
 				px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 	}
 
 	if( enable_h ) {
 
-		if( (int)floor(gl_FragCoord.y) == guide_uy || (int)floor(gl_FragCoord.y) == guide_ly )
+		if( int(floor(gl_FragCoord.y)) == guide_uy || int(floor(gl_FragCoord.y)) == guide_ly )
         	px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 
 		if( thicker )
-			if( (int)floor(gl_FragCoord.y) == guide_uy+1 || (int)floor(gl_FragCoord.y) == guide_ly-1 )
+			if( int(floor(gl_FragCoord.y)) == guide_uy+1 || int(floor(gl_FragCoord.y)) == guide_ly-1 )
 	        	px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 	}
 
