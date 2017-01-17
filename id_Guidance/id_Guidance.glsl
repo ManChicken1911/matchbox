@@ -32,11 +32,11 @@ void main(void) {
 
     // Add the guide offsets
 
-    guide_rx += floor(offset_xy[0]);
-    guide_lx += floor(offset_xy[0]);
+    guide_rx += int(floor(offset_xy[0]));
+    guide_lx += int(floor(offset_xy[0]));
 
-    guide_uy += floor(offset_xy[1]);
-    guide_ly += floor(offset_xy[1]);
+    guide_uy += int(floor(offset_xy[1]));
+    guide_ly += int(floor(offset_xy[1]));
 
     // Draw the guides
 
