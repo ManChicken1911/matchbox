@@ -24,39 +24,39 @@ void main(void) {
 
     // Figure out where to draw the guides
 
-    int guide_rx = int(((adsk_result_w / 2) + (amount_h / 2)));
-    int guide_lx = int(((adsk_result_w / 2) - (amount_h / 2) - 1));
+    float guide_rx = (adsk_result_w / 2.0) + (amount_h / 2.0);
+    float guide_lx = (adsk_result_w / 2.0) - (amount_h / 2.0 - 1);
 
-    int guide_uy = int(((adsk_result_h / 2) + (amount_v / 2)));
-    int guide_ly = int(((adsk_result_h / 2) - (amount_v / 2) - 1));
+    float guide_uy = (adsk_result_h / 2.0) + (amount_v / 2.0);
+    float guide_ly = (adsk_result_h / 2.0) - (amount_v / 2.0 - 1);
 
     // Add the guide offsets
 
-    guide_rx += int(floor(offset_xy[0]));
-    guide_lx += int(floor(offset_xy[0]));
+    guide_rx += floor(offset_xy[0]);
+    guide_lx += floor(offset_xy[0]);
 
-    guide_uy += int(floor(offset_xy[1]));
-    guide_ly += int(floor(offset_xy[1]));
+    guide_uy += floor(offset_xy[1]);
+    guide_ly += floor(offset_xy[1]);
 
     // Draw the guides
 
 	if( enable_v ) {
 
-		if( int(floor(gl_FragCoord.x)) == guide_lx || int(floor(gl_FragCoord.x)) == guide_rx )
+		if( floor(gl_FragCoord.x) == guide_lx || floor(gl_FragCoord.x) == guide_rx )
 			px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 
 		if( thicker )
-			if( int(floor(gl_FragCoord.x)) == guide_lx-1 || int(floor(gl_FragCoord.x)) == guide_rx+1 )
+			if( floor(gl_FragCoord.x) == guide_lx-1 || floor(gl_FragCoord.x) == guide_rx+1 )
 				px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 	}
 
 	if( enable_h ) {
 
-		if( int(floor(gl_FragCoord.y)) == guide_uy || int(floor(gl_FragCoord.y)) == guide_ly )
+		if( floor(gl_FragCoord.y) == guide_uy || floor(gl_FragCoord.y) == guide_ly )
         	px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 
 		if( thicker )
-			if( int(floor(gl_FragCoord.y)) == guide_uy+1 || int(floor(gl_FragCoord.y)) == guide_ly-1 )
+			if( floor(gl_FragCoord.y) == guide_uy+1 || floor(gl_FragCoord.y) == guide_ly-1 )
 	        	px = vec4( mix( px, vec4( guide_color, 1.0 ), (guide_trans / 100.0) ) );
 	}
 
