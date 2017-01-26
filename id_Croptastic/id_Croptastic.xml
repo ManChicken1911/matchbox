@@ -17,6 +17,9 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
       <Uniform Name="crop_b" Type="float" DisplayName="Bottom" Tooltip="Bottom crop amount (pixels)"
         Min="0.0" Max="10000.0" Inc="1.00" Row="3" Col="0" Page="0" IconType="None">
       </Uniform>
+      <Uniform Name="invert" Type="bool" DisplayName="Invert" Tooltip="Invert crop (inside crop)"
+        Default="false" Row="4" Col="0" Page="0">
+      </Uniform>
 
       <!-- Tab 1 Col 2: Offset -->
       <Uniform Name="offset_xy" Type="vec2" DisplayName="Offset" Tooltip="X/Y Offset Amount"
