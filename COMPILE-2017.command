@@ -23,25 +23,33 @@ print("LOGIK Matchbook shader collection compiler/installer running py-%s\n" % (
 # Attempt to re-run self via sudo
 if os.getuid() != 0:
 
-    print("You need to be root or have sudo to run the installer.")
-    print("I will now ask you for your account password.")
-    print("If this doesn't work, then you probably have a Linux IFFS system")
-    print("and you'll have to run this installer as root.")
+    print( "You need to be root or have sudo to run the installer." )
+    print( "I will now ask you for your account password." )
+    print( "If this doesn't work, then you probably have a Linux IFFS system" )
+    print( "and you'll have to run this installer as root." )
 
     cmd = 'sudo "%s"' % __file__
     subprocess.call(shlex.split(cmd))
     exit(0)
 
+# Attempt to find the IFFFS base directory which moved in 2017 Extension 1
+# from /usr/discreet to /opt/Autodesk
+
+if os.path.exists( "/opt/Autodesk/cfg" ):
+    ifffs_base = "/opt/Autodesk/"
+else:
+    ifffs_base = "/usr/discreet/"
+
 # Find shader_builder binary or die
-find_builder = glob.glob("/usr/discreet/*/bin/shader_builder" )
+find_builder = glob.glob( ifffs_base + "*/bin/shader_builder" )
 
 if( find_builder ):
     shader_builder = find_builder.pop()
     print( "Using shader compiler at %s\n" % shader_builder )
 else:
-    sys.stderr.write("Couldn't find shader_builder\n")
-    sys.stderr.write("Compiling glsl shaders with this script is only supported in release 2016.\n")
-    sys.stderr.write("If you are running release 2015, please use the COMPILE-2015.command script instead.\n")
+    sys.stderr.write( "Couldn't find shader_builder\n" )
+    sys.stderr.write( "Compiling glsl shaders with this script is only supported in release 2017.\n" )
+    sys.stderr.write( "If you are running release 2016, please use the COMPILE-2016.command script instead.\n" )
     exit(1)
 
 pkgdir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'shaders')
@@ -50,8 +58,8 @@ files = glob.glob("*.glsl")
 files.sort()
 
 # Find all Matchbox install directories
-matchbox_directories = glob.glob("/usr/discreet/presets/2017*/matchbox")
-lightbox_directories = glob.glob("/usr/discreet/presets/2017*/action/lightbox")
+matchbox_directories = glob.glob( ifffs_base + "presets/2017*/matchbox" )
+lightbox_directories = glob.glob( ifffs_base + "presets/2017*/action/lightbox" )
 
 for destination in matchbox_directories:
     if not os.access(destination, os.W_OK):
@@ -100,9 +108,9 @@ print
 
 # Read a list of shaders to skip
 
-if os.access( "skip-shaders.cfg", os.F_OK ):
+if os.access( "../skip-shaders.cfg", os.F_OK ):
     print( "Reading skip-shaders.cfg\n" )
-    tmp_fp = open( "skip-shaders.cfg", 'r' )
+    tmp_fp = open( "../skip-shaders.cfg", 'r' )
     skip_shaders = tmp_fp.readlines()
     tmp_fp.close()
 
