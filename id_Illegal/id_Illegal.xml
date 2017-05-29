@@ -1,0 +1,60 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Illegal" CommercialUsePermitted="True"
+Description="Highlights pixels that would be over 1.0 or under 0.0 once converted from RGB to YUV and back.
+
+NOTE: This is not calibrated to any sort of standard and is only useful as a rough indication of potential QC rejection issues for SD/HD deliverable material containing out-of-gamut colors.
+
+Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)" >
+   <Shader OutputBitDepth="Output" Index="1">
+
+      <!-- Input Config -->
+
+      <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Error" InputType="Front"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
+      </Uniform>
+      <Uniform Name="unused" Type="sampler2D" DisplayName="Unused" Index="1" NoInput="Black" InputColor="86,86,86"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
+      </Uniform>
+      <Uniform Name="in_matte" Type="sampler2D" DisplayName="Matte" Index="2" NoInput="White" InputType="Matte"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
+      </Uniform>
+
+      <!-- Tab 1 Col 1: Switches -->
+
+      <Uniform Name="showRed" DisplayName="Red" Type="bool" Tooltip="Show illegal colors from the Red channel" Default="True"
+         Row="0" Col="0" Page="0">
+      </Uniform>
+      <Uniform Name="showGreen" DisplayName="Green" Type="bool" Tooltip="Show illegal colors from the Green channel" Default="True"
+         Row="1" Col="0" Page="0">
+      </Uniform>
+      <Uniform Name="showBlue" DisplayName="Blue" Type="bool" Tooltip="Show illegal colors from the Blue channel" Default="True"
+         Row="2" Col="0" Page="0">
+      </Uniform>
+
+      <!-- Tab 1 Col 2: Colors -->
+
+      <Uniform Name="colorOver" DisplayName="High &gt; 1" Type="vec3" ValueType="Colour" Tooltip="Color for pixel values over 1.0"
+         Page="0" Col="1" Row="0">
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
+      </Uniform>
+
+      <Uniform Name="colorUnder" DisplayName="Low  &lt; 0" Type="vec3" ValueType="Colour" Tooltip="Color for pixel values less than 0.0"
+         Page="0" Col="1" Row="1">
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
+      </Uniform>
+
+      <Uniform Name="showMatte" DisplayName="Show in Matte" Type="bool" Tooltip="Output illegal pixels as a Matte" Default="False"
+         Row="2" Col="1" Page="0">
+      </Uniform>
+
+   </Shader>
+
+   <Page Name="Illegal" Page="0">
+      <Col Name="Analyize Channels" Col="0" Page="0"></Col>
+      <Col Name="Highlight Colors" Col="1" Page="0"></Col>
+   </Page>
+
+</ShaderNodePreset>
