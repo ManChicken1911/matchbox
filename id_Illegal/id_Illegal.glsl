@@ -18,46 +18,31 @@ void main(void) {
 	// and fetch the input pixel into px
 
 	vec2 uv  = gl_FragCoord.xy / vec2( adsk_result_w, adsk_result_h );
-	vec4 px  = vec4( texture2D( in_front, uv ).rgb, texture2D( in_matte, uv ).r );
+	vec3 px  = texture2D( in_front, uv );
 
-	vec3 npx = px.rgb;
-	float nmpx;
-
-	if( showMatte )
-		nmpx = 0.0;
-	else
-		nmpx = px.a;
+	vec4  pxOver  = vec4( colorOver, 1.0 );
+	vec4  pxUnder = vec4( colorUnder, 1.0 );
+	vec4  npx = vec4( px, 0.0 );
 
 	// Do something important
 
 	vec3 rgbPx = adsk_yuv2rgb( adsk_rgb2yuv( px.rgb ) );
 
-	if( showRed && rgbPx.r > 1.0 ) {
-		npx = colorOver;
-		if( showMatte ) nmpx = 1.0;
+	if( showRed ) {
+		npx = rgbPx.r > 1.0 ? pxOver  : npx;
+		npx = rgbPx.r < 0.0 ? pxUnder : npx;
 	}
-	if( showGreen && rgbPx.g > 1.0 ) {
-		npx = colorOver;
-		if( showMatte ) nmpx = 1.0;
+	if( showGreen ) {
+		npx = rgbPx.g > 1.0 ? pxOver  : npx;
+		npx = rgbPx.g < 0.0 ? pxUnder : npx;
 	}
-	if( showBlue && rgbPx.b > 1.0 ) {
-		npx = colorOver;
-		if( showMatte ) nmpx = 1.0;
-	}
-
-
-	if( showRed && rgbPx.r < 0.0 ) {
-		npx = colorUnder;
-		if( showMatte ) nmpx = 1.0;
-	}
-	if( showRed && rgbPx.r < 0.0 ) {
-		npx = colorUnder;
-		if( showMatte ) nmpx = 1.0;
-	}
-	if( showRed && rgbPx.r < 0.0 ) {
-		npx = colorUnder;
-		if( showMatte ) nmpx = 1.0;
+	if( showBlue ) {
+		npx = rgbPx.b > 1.0 ? pxOver  : npx;
+		npx = rgbPx.b < 0.0 ? pxUnder : npx;
 	}
 
-	gl_FragColor = vec4( npx, nmpx );
+	if( !showMatte )
+		npx.a = texture2D( in_matte, uv ).r;
+
+	gl_FragColor = npx;
 }
