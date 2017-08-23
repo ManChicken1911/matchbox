@@ -3,7 +3,7 @@
 
 uniform sampler2D  in_front, in_matte;
 uniform     float  adsk_result_w, adsk_result_h;
-uniform      bool  showRed, showGreen, showBlue, showMatte;
+uniform      bool  rgbOnly, showRed, showGreen, showBlue, showMatte;
 uniform      vec3  colorOver, colorUnder;
 
 vec3 adsk_rgb2yuv( vec3 );
@@ -23,10 +23,14 @@ void main(void) {
 	vec4  pxOver  = vec4( colorOver, 1.0 );
 	vec4  pxUnder = vec4( colorUnder, 1.0 );
 	vec4  npx = vec4( px, 0.0 );
+	vec3  rgbPx;
 
 	// Do something important
 
-	vec3 rgbPx = adsk_yuv2rgb( adsk_rgb2yuv( px.rgb ) );
+	if( !rgbOnly )
+		rgbPx = adsk_yuv2rgb( adsk_rgb2yuv( px.rgb ) );
+	else
+		rgbPx = npx.rgb;
 
 	if( showRed ) {
 		npx = rgbPx.r > 1.0 ? pxOver  : npx;

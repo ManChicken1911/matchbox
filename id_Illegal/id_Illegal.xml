@@ -29,6 +29,9 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)" >
       <Uniform Name="showBlue" DisplayName="Blue" Type="bool" Tooltip="Show illegal colors from the Blue channel" Default="True"
          Row="2" Col="0" Page="0">
       </Uniform>
+      <Uniform Name="rgbOnly" DisplayName="No YUV Conversion" Type="bool" Tooltip="Analyze original RGB values without passing through YUV conversion colors" Default="False"
+         Row="3" Col="0" Page="0">
+      </Uniform>
 
       <!-- Tab 1 Col 2: Colors -->
 
