@@ -21,16 +21,16 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)" >
       <!-- Tab 1 Col 1: Switches -->
 
       <Uniform Name="showRed" DisplayName="Red" Type="bool" Tooltip="Show illegal colors from the Red channel" Default="True"
-         Row="0" Col="0" Page="0">
+         Page="0" Col="0" Row="0">
       </Uniform>
       <Uniform Name="showGreen" DisplayName="Green" Type="bool" Tooltip="Show illegal colors from the Green channel" Default="True"
-         Row="1" Col="0" Page="0">
+         Page="0" Col="0" Row="1">
       </Uniform>
       <Uniform Name="showBlue" DisplayName="Blue" Type="bool" Tooltip="Show illegal colors from the Blue channel" Default="True"
-         Row="2" Col="0" Page="0">
+         Page="0" Col="0" Row="2">
       </Uniform>
       <Uniform Name="rgbOnly" DisplayName="No YUV Conversion" Type="bool" Tooltip="Analyze original RGB values without passing through YUV conversion colors" Default="False"
-         Row="3" Col="0" Page="0">
+         Page="0" Col="0" Row="3">
       </Uniform>
 
       <!-- Tab 1 Col 2: Colors -->
@@ -49,8 +49,12 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)" >
          <SubUniform ResDependent="None" Max="1000.0" Min="-1000.0" Default="0.0"></SubUniform>
       </Uniform>
 
-      <Uniform Name="showMatte" DisplayName="Show in Matte" Type="bool" Tooltip="Output illegal pixels as a Matte" Default="False"
-         Row="2" Col="1" Page="0">
+      <Uniform Name="showMatte" DisplayName="Highlight in Matte" Type="bool" Tooltip="Output illegal pixels into the Matte channel" Default="False"
+         Page="0" Col="1" Row="2">
+      </Uniform>
+
+      <Uniform Name="outputMatte" DisplayName="Output as Matte" Type="bool" Tooltip="Output illegal pixels as a Matte" Default="False"
+         Page="0" Col="1" Row="3">
       </Uniform>
 
    </Shader>
