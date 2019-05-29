@@ -1,0 +1,86 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Variables" CommercialUsePermitted="True"
+Description="A simple null shader intended as an example for you to modify and make your own custom &quot;Variables&quot; matchboxes out of. Modify the .xml and call the controls whatever you want, add more or remove some, etc.
+
+Although the shader its self does nothing, the Front (red) input is required and just passes through to the output. The Back (green) input is there for convenience allowing you to connect something else to it for use as a viewer toggle (F1/F2) without leaving the node.">
+
+	<Shader OutputBitDepth="Output" Index="1">
+
+		<!-- Note that the UI 'Page', 'Row' and 'Col' values are indexed starting at 0.     -->
+		<!-- The DisplayName is used for both the UI and the name of the animation channel; -->
+		<!-- the Name should be unique for each control but is otherwise unused.            -->
+
+		<!-- First Column: Generic single float values -->
+		<Uniform Name="generic1" DisplayName="Position 1" Type="float"
+		  Row="0" Col="0" Page="0"
+		  Min="-10000" Max="10000" Inc="0.01" Default="0.0" >
+		</Uniform>
+
+		<Uniform Name="generic2" DisplayName="Position 2" Type="float"
+		  Row="1" Col="0" Page="0"
+		  Min="-10000" Max="10000" Inc="0.01" Default="0.0" >
+		</Uniform>
+
+		<Uniform Name="generic3" DisplayName="Position 3" Type="float"
+		  Row="2" Col="0" Page="0"
+		  Min="-10000" Max="10000" Inc="0.01" Default="0.0" >
+		</Uniform>
+
+		<Uniform Name="generic4" DisplayName="Position 4" Type="float"
+		  Row="3" Col="0" Page="0"
+		  Min="-10000" Max="10000" Inc="0.01" Default="0.0" >
+		</Uniform>
+
+		<Uniform Name="generic5" DisplayName="Position 5" Type="float"
+		  Row="4" Col="0" Page="0"
+		  Min="-10000" Max="10000" Inc="0.01" Default="0.0" >
+		</Uniform>
+
+		<!-- Second Column: Paired XY type float values - Note the Row value, these take up two rows in the UI -->
+		<Uniform Name="xy1" DisplayName="Position XY 1" Type="vec2"
+		  Row="0" Col="1" Page="0">
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		</Uniform>
+
+		<Uniform Name="xy2" DisplayName="Position XY 2" Type="vec2"
+		  Row="2" Col="1" Page="0">
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		</Uniform>
+
+
+		<!-- Third Column: XYZ type float values - Note the Row value, these take up two rows in the UI -->
+		<Uniform Name="xyz1" DisplayName="Position XYZ 1" Type="vec3"
+		  Row="0" Col="2" Page="0">
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		</Uniform>
+		<Uniform Name="xyz2" DisplayName="Position XYZ 2" Type="vec3"
+		  Row="2" Col="2" Page="0">
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		  <SubUniform Min="-10000.0" Max="10000.0" Inc="0.01" Default="0.0"></SubUniform>
+		</Uniform>
+
+		<!-- Input definitions -->
+
+		<!-- Passthru 'front' input - Change to NoInput="Black" if you don't want to require an input be connected -->
+		<Uniform Name="passthru" Type="sampler2D" DisplayName="Passthru" Index="0" NoInput="Error" InputType="Front" Mipmaps="False"
+			GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
+		</Uniform>
+		<!-- Dummy 'back' input does nothing -->
+		<Uniform Name="dummy" Type="sampler2D" DisplayName="Dummy" Index="1" NoInput="Black" InputType="Back" Mipmaps="False"
+			GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
+		</Uniform>
+
+	</Shader>
+
+	<!-- Name the columns on the interface -->
+	<Page Name="Variables" Page="0">
+		<Col Name="Single Floats" Col="0" Page="0"></Col>
+		<Col Name="XY Floats" Col="1" Page="0"></Col>
+		<Col Name="XYZ Floats" Col="2" Page="0"></Col>
+	</Page>
+
+</ShaderNodePreset>
