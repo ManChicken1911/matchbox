@@ -2,13 +2,13 @@
 
 # COMPILE.py by Bob Maple
 # Compiles and installs Matchbox and Lightbox shaders from http://logik-matchbook.org/
-# Place in the same directory of the Matchbook download as INSTALL.command and run instead.
+# Place this in the same directory of the extracted Matchbook tar and run instead.
 
 import os, glob, shlex, subprocess, sys, shutil, re
 
 # Config
 debug_compiler      = False
-mx_install_dir_name = "shaders/LOGIK-MX"
+mx_install_dir_name = "LOGIK-MX"
 lx_install_dir_name = "LOGIK-LX"
 
 # Functions
@@ -40,8 +40,8 @@ if os.getuid() != 0:
     subprocess.call(shlex.split(cmd))
     exit(0)
 
-# Find versions of Flame so we can ask the user which version
-# to install for rather
+# Find versions of Flame products so we can ask the user
+# which version to install into
 find_flames  = glob.glob("/opt/Autodesk/flame_*")
 find_flames += glob.glob("/opt/Autodesk/flare_*")
 find_flames += glob.glob("/opt/Autodesk/flameassist_*")
@@ -76,7 +76,7 @@ files = glob.glob("*.glsl")
 files.sort()
 
 # Verify all matchbox install directories
-matchbox_directory = "/opt/Autodesk/presets/" + flame_ver + "/matchbox"
+matchbox_directory = "/opt/Autodesk/presets/" + flame_ver + "/matchbox/shaders"
 lightbox_directory = "/opt/Autodesk/presets/" + flame_ver + "/action/lightbox"
 
 if not os.access(matchbox_directory, os.W_OK):
