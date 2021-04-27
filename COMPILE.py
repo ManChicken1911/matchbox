@@ -53,7 +53,10 @@ if( find_flames ):
 		i += 1
 		print( "[" + str(i) + "] " + tmp )
 
-	tmp_in = raw_input( "\nInstall to (" + str(len(find_flames)) + "): " )
+	if( sys.version_info[0] > 2 ):
+		tmp_in = input( "\nInstall to (" + str(len(find_flames)) + "): " )
+	else:
+		tmp_in = raw_input( "\nInstall to (" + str(len(find_flames)) + "): " )
 
 	if( not tmp_in.isdigit() ):
 		tmp_in = i - 1;
