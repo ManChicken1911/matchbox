@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# INSTALL.py by Bob Maple v0.1
+# INSTALL.py by Bob Maple v0.2
 # Packages into .mx/.lx and installs Matchbox and Lightbox shaders from http://logik-matchbook.org/
 # Place this in the same directory of the extracted Matchbook tar and run it instead:
 #
@@ -19,7 +19,7 @@ def get_install_subdir( shader_name ):
 	global install_hints
 
 	for tmp_hint in install_hints:
-		aregex = re.search('(.*)\\s*=\\s*(.*)', tmp_hint)
+		aregex = re.search('(.*) = (.*)', tmp_hint)
 		if aregex:
 			bregex = re.search( aregex.group(1), shader_name )
 			if bregex:
@@ -249,7 +249,7 @@ for shader_file in files:
 			shader_type_name = "\033[93mlightbox\033[0m"
 
 		print( "Installing %s shader: %s" % (shader_type_name, shader_name) ),
-		compileargs = [shader_builder, '-p', shader_type]
+		compileargs = [shader_builder, '-p', '-d', shader_type]
 		compileargs.extend(allshaders)
 
 		# rc = 0
