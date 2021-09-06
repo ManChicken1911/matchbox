@@ -5,13 +5,13 @@ Attribution-ShareAlike (CC BY-SA) unless otherwise individually noted.
 https://creativecommons.org/licenses/by-sa/4.0/
 
 
-The **COMPILE.py** script will compile and install all the Matchbox and Lightbox shaders into their proper
+The **INSTALL.py** script will compile and install all the Matchbox and Lightbox shaders into their proper
 directories for a specific Flame, Flame Assist or Flare release chosen from a menu.
 
 To use it, put the script into the directory where you extracted the downloaded LOGIK matchbook shaders
 (where the INSTALL.command and the shaders directories are) and execute it instead of INSTALL.command:
 
-  python ./COMPILE.py
+  python ./INSTALL.py
 
 You can optionally create a file called "skip-shaders.cfg" placed in the same directory, containing
 a list of shaders you do not wish to compile or install.  Simply list each shader by name (without

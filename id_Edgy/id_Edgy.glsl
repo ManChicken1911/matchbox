@@ -21,14 +21,12 @@ void main(void) {
 	vec3 px  = texture2D( in_front, uv ).rgb;
 
 	vec4  pxHL = vec4( colorHL, 1.0 );
-	vec4  npx = vec4( px, 0.0 );
-	vec3  rgbPx;
+	vec4  npx  = vec4( px, 0.0 );
+
 
 	// Do something important
 
-	rgbPx = npx.rgb;
-
-	npx = rgbPx.rgb == vec3(0.0,0.0,0.0) ? pxHL : npx;
+	npx = px == vec3(0.0,0.0,0.0) ? pxHL : npx;
 
 	if( outputMatte )
 		npx.rgb = npx.aaa;
