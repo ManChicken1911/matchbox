@@ -1,17 +1,26 @@
-// id_CompTrans © 2021 Bob Maple
+// id_CompTrans © 2022 Bob Maple
 // bobm-matchbox [at] idolum.com
 
-uniform sampler2D  in_outgoing, in_incoming, in_matte;
+uniform sampler2D  in_outgoing, in_incoming, in_inmatte, in_outmatte;
 uniform     float  adsk_result_w, adsk_result_h;
-uniform      bool  premult;
+uniform      bool  premult, out_over_in;
 
 void main(void) {
 
-    // Convert pixel coords to UV coords for texture2D
+	// Convert pixel coords to UV coords for texture2D
 	vec2 uv   = gl_FragCoord.xy / vec2( adsk_result_w, adsk_result_h );
 
-	vec3 bg   = vec3( texture2D( in_outgoing, uv ).rgb );
-	vec4 fg   = vec4( texture2D( in_incoming, uv ).rgb, texture2D( in_matte, uv ).g );
+	vec3 bg;
+	vec4 fg;
+
+	if( out_over_in ) {		// Swap in the inputs and matte
+		bg = vec3( texture2D( in_incoming, uv ).rgb );
+		fg = vec4( texture2D( in_outgoing, uv ).rgb, texture2D( in_outmatte, uv ).g );
+	}
+	else {
+		bg = vec3( texture2D( in_outgoing, uv ).rgb );
+		fg = vec4( texture2D( in_incoming, uv ).rgb, texture2D( in_inmatte, uv ).g );
+	}
 
 	// Unpremultiply the FG pixel if enabled and alpha is non-zero
 

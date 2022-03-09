@@ -1,4 +1,4 @@
-<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="False" SupportsTransition="True" Version="1" Name="id_CompTrans" CommercialUsePermitted="True" Description="Stop building timeline staircases! Use as a Matchbox transition to comp the incoming clip with its alpha over the outgoing clip">
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" SupportsTransition="True" Version="1" Name="id_CompTrans" CommercialUsePermitted="True" Description="Stop building timeline staircases! Use as a Matchbox transition to comp the incoming clip with its alpha over the outgoing clip (or vice-versa with the button.)">
 
    <Shader OutputBitDepth="Output" Index="1">
 
@@ -7,22 +7,27 @@
       <Uniform Name="in_outgoing" Type="sampler2D" DisplayName="Outgoing" Index="0" NoInput="Error" InputType="Back"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
       </Uniform>
-      <Uniform Name="in_incoming" Type="sampler2D" DisplayName="Incoming" Index="1" NoInput="Black" InputColor="Front"
+      <Uniform Name="in_incoming" Type="sampler2D" DisplayName="Incoming" Index="1" NoInput="Black" InputType="Front"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
       </Uniform>
-      <!-- Index 2 would be Out Matte which we don't use so the following is Index 3 for In Matte -->
-      <Uniform Name="in_matte" Type="sampler2D" DisplayName="In Matte" Index="3" NoInput="White" InputType="Matte"
+      <Uniform Name="in_outmatte" Type="sampler2D" DisplayName="Outgoing Matte" Index="2" NoInput="White" InputType="Matte"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
+      </Uniform>
+      <Uniform Name="in_inmatte" Type="sampler2D" DisplayName="Incoming Matte" Index="3" NoInput="White" InputType="Matte"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
       </Uniform>
 
       <Uniform Name="premult" DisplayName="Premultiplied" Type="bool" Default="True"
          Row="0" Col="0" Page="0">
       </Uniform>
+      <Uniform Name="out_over_in" DisplayName="Outgoing over Incoming" Type="bool" Default="False"
+         Row="1" Col="0" Page="0">
+      </Uniform>
 
    </Shader>
 
    <Page Name="Controls" Page="0">
-      <Col Name="Incoming Fill" Col="0" Page="0"></Col>
+      <Col Name="Composite" Col="0" Page="0"></Col>
    </Page>
 
 </ShaderNodePreset>
