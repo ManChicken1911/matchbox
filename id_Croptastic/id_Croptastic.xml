@@ -133,7 +133,7 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
       <Col Name="Texture" Col="1" Page="0"></Col>
       <Col Name="Border" Col="2" Page="0"></Col>
    </Page>
-   <Page Name="Advanced Borders" Page="1">
+   <Page Name="Adv Borders" Page="1">
       <Col Name="Size" Col="1" Page="1"></Col>
       <Col Name="Color" Col="2" Page="1"></Col>
       <Col Name="Opacity" Col="3" Page="1"></Col>
