@@ -23,13 +23,16 @@ if( !file_exists( $argv[1] ) )
 	die( "File not found\n" );
 
 $infp = fopen( $argv[1], "rb" );
-$oufp = fopen( $outname . ".p", "wb" );
 
 $pwidth  = imagesx( $proxy_img );
 $pheight = imagesy( $proxy_img );
 
-if( $pwidth % 4 )
-	die( "Image width must be divisible by 4 (is $pwidth)\n" );
+if( $pwidth % 4 ) {
+    fclose( $infp );
+	die( "error: Image width must be divisible by 4 (is $pwidth)\n" );
+}
+
+$oufp = fopen( $outname . ".p", "wb" );
 
 if( $infp && $oufp ) {
     print( "Converting " . $argv[1] . " to " . $outname . ".p\n" );
