@@ -1,0 +1,33 @@
+<ShaderNodePreset ShaderType="Matchbox" SupportsAdaptiveDegradation="False" SupportsAction="False" TimelineUseBack="False" MatteProvider="False" LimitInputsToTexture="True" Version="3" Description="Makes... well, zippy zaps. See the Shader tab for some presets, or just fiddle with the controls.
+
+Shader by SnoopethDuckDuck on Shadertoy.com adapted to Matchbox by Bob Maple" Name="id_ZippyZaps">
+
+   <Shader Clear="0" GridSubdivision="1" OutputBitDepth="Output" Index="1">
+
+      <!-- Tab 1 Col 1: Speed -->
+      <Uniform Name="speed_fps" Type="float" DisplayName="FPS" Tooltip="Effective speed of the motion (higher is slower)"
+         Row="0" Col="0" Page="0" IconType="None"
+         Min="1.0" Max="600.0" Inc="1.00" Default="60.0">
+      </Uniform>
+
+      <!-- Tab 1 Col 2: Color -->
+      <Uniform Name="red_bias" Type="float" DisplayName="Red Bias"
+         Row="0" Col="1" Page="0" IconType="None"
+         Min="-5.0" Max="5.0" Inc="0.1" Default="1.0">
+      </Uniform>
+      <Uniform Name="green_bias" Type="float" DisplayName="Green Bias"
+         Row="1" Col="1" Page="0" IconType="None"
+         Min="-5.0" Max="5.0" Inc="0.1" Default="2.0">
+      </Uniform>
+      <Uniform Name="blue_bias" Type="float" DisplayName="Blue Bias"
+         Row="2" Col="1" Page="0" IconType="None"
+         Min="-5.0" Max="5.0" Inc="0.1" Default="3.0">
+      </Uniform>
+   </Shader>
+
+   <Page Name="Zippy Zaps" Page="0">
+      <Col Name="Speed" Col="0" Page="0"></Col>
+      <Col Name="Color" Col="1" Page="0"></Col>
+   </Page>
+
+</ShaderNodePreset>

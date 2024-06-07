@@ -1,0 +1,68 @@
+<Presets>
+
+   <Preset Name="Alien Swarm">
+      <Shader Index="1">
+         <Uniform Value="20" Type="float" DisplayName="FPS" Name="speed_fps">
+         </Uniform>
+         <Uniform Value="-1" Type="float" DisplayName="Red Bias" Name="red_bias">
+         </Uniform>
+         <Uniform Value="1" Type="float" DisplayName="Green Bias" Name="green_bias">
+         </Uniform>
+         <Uniform Value="1" Type="float" DisplayName="Blue Bias" Name="blue_bias">
+         </Uniform>
+      </Shader>
+   </Preset>
+
+   <Preset Name="Carnival">
+      <Shader Index="1">
+         <Uniform Value="60" Type="float" DisplayName="FPS" Name="speed_fps">
+         </Uniform>
+         <Uniform Value="-1" Type="float" DisplayName="Red Bias" Name="red_bias">
+         </Uniform>
+         <Uniform Value="0" Type="float" DisplayName="Green Bias" Name="green_bias">
+         </Uniform>
+         <Uniform Value="0.5" Type="float" DisplayName="Blue Bias" Name="blue_bias">
+         </Uniform>
+      </Shader>
+   </Preset>
+
+   <Preset Name="Dramatic">
+      <Shader Index="1">
+         <Uniform Value="60" Type="float" DisplayName="FPS" Name="speed_fps">
+         </Uniform>
+         <Uniform Value="-1.5" Type="float" DisplayName="Red Bias" Name="red_bias">
+         </Uniform>
+         <Uniform Value="-1" Type="float" DisplayName="Green Bias" Name="green_bias">
+         </Uniform>
+         <Uniform Value="-0.5" Type="float" DisplayName="Blue Bias" Name="blue_bias">
+         </Uniform>
+      </Shader>
+   </Preset>
+
+   <Preset Name="Heavenly">
+      <Shader Index="1">
+         <Uniform Value="300" Type="float" DisplayName="FPS" Name="speed_fps">
+         </Uniform>
+         <Uniform Value=".9" Type="float" DisplayName="Red Bias" Name="red_bias">
+         </Uniform>
+         <Uniform Value=".7" Type="float" DisplayName="Green Bias" Name="green_bias">
+         </Uniform>
+         <Uniform Value=".5" Type="float" DisplayName="Blue Bias" Name="blue_bias">
+         </Uniform>
+      </Shader>
+   </Preset>
+
+   <Preset Name="Monochrome">
+      <Shader Index="1">
+         <Uniform Value="60" Type="float" DisplayName="FPS" Name="speed_fps">
+         </Uniform>
+         <Uniform Value=".5" Type="float" DisplayName="Red Bias" Name="red_bias">
+         </Uniform>
+         <Uniform Value=".5" Type="float" DisplayName="Green Bias" Name="green_bias">
+         </Uniform>
+         <Uniform Value=".5" Type="float" DisplayName="Blue Bias" Name="blue_bias">
+         </Uniform>
+      </Shader>
+   </Preset>
+
+</Presets>
