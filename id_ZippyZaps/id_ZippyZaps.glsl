@@ -1,16 +1,17 @@
 // Zippy Zaps by SnoopethDuckDuck - https://www.shadertoy.com/view/XXyGzh
 // Adapted from Shadertoy to Flame by Bob Maple
-// Version 20240609
+// Version 20240619
 //
 // Note: Doesn't really work right on Mac, I have no idea why and no
-// real means to figure it out
+// real means to figure it out at the moment
 
 #version 130
 
 uniform float adsk_time;
 uniform float adsk_result_w, adsk_result_h;
 
-uniform float red_bias, green_bias, blue_bias, speed_fps;
+uniform float red_bias, green_bias, blue_bias, speed_fps, time_offset, clamp_min, clamp_max;
+uniform bool  clamp_enable;
 
 void main( void )
 {
@@ -23,7 +24,7 @@ void main( void )
   // Shadertoy iTime is in seconds (adsk_time is in frames)
   // and runs at 60fps ideally
 
-    float iTime = (1.0 / speed_fps) * (adsk_time-1);
+    float iTime = ((1.0 / speed_fps) * (adsk_time-1)) + time_offset;
 
   // Shadertoy iResolution.xy
 
@@ -42,5 +43,5 @@ void main( void )
               
     o = pow(1.0-sqrt(exp(-o*o*o/2e2)), 0.3*z/z) - dot(w-=u,w) / 250.0;
 
-    gl_FragColor = o;
+    gl_FragColor = clamp_enable ? clamp( o, clamp_min, clamp_max ) : o;
 }

@@ -9,6 +9,10 @@ Shader by SnoopethDuckDuck on Shadertoy.com adapted to Matchbox by Bob Maple" Na
          Row="0" Col="0" Page="0" IconType="None"
          Min="1.0" Max="600.0" Inc="1.00" Default="60.0">
       </Uniform>
+      <Uniform Name="time_offset" Type="float" DisplayName="Time Offset" Tooltip="Offset the effect evolution"
+         Row="1" Col="0" Page="0" IconType="None"
+         Min="-10.0" Max="10.0" Inc="0.01" Default="0.0">
+      </Uniform>
 
       <!-- Tab 1 Col 2: Color -->
       <Uniform Name="red_bias" Type="float" DisplayName="Red Bias"
@@ -23,11 +27,26 @@ Shader by SnoopethDuckDuck on Shadertoy.com adapted to Matchbox by Bob Maple" Na
          Row="2" Col="1" Page="0" IconType="None"
          Min="-5.0" Max="5.0" Inc="0.1" Default="3.0">
       </Uniform>
+
+      <!-- Tab 1 Col 3: Clamping -->
+      <Uniform Name="clamp_enable" DisplayName="Clamp" Type="bool" Default="True"
+         Row="0" Col="2" Page="0">
+      </Uniform>
+      <Uniform Name="clamp_min" DisplayName="Min" Type="float"
+         Min="-5.0" Max="0.0" Inc="0.1" Default="0.0"
+         Row="1" Col="2" Page="0">
+      </Uniform>
+      <Uniform Name="clamp_max" DisplayName="Max" Type="float"
+         Min="0.0" Max="5.0" Inc="0.1" Default="1.0"
+         Row="2" Col="2" Page="0">
+      </Uniform>
+
    </Shader>
 
    <Page Name="Zippy Zaps" Page="0">
       <Col Name="Speed" Col="0" Page="0"></Col>
       <Col Name="Color" Col="1" Page="0"></Col>
+      <Col Name="Clamping" Col="2" Page="0"></Col>
    </Page>
 
 </ShaderNodePreset>
