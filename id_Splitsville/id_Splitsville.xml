@@ -84,11 +84,11 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
       </Uniform>
 
-      <Uniform Name="in_matte_a" Type="sampler2D" DisplayName="Matte A" Index="1" NoInput="White" InputType="Matte"
+      <Uniform Name="in_matte_a" Type="sampler2D" DisplayName="Matte A" Index="2" NoInput="White" InputType="Matte"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
       </Uniform>
 
-      <Uniform Name="in_front_b" Type="sampler2D" DisplayName="Input B" Index="2" NoInput="Error" InputType="Front"
+      <Uniform Name="in_front_b" Type="sampler2D" DisplayName="Input B" Index="1" NoInput="Error" InputType="Back"
         Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
       </Uniform>
 
