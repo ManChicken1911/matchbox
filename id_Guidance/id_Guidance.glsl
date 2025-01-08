@@ -1,5 +1,6 @@
-// Guidance (C)2017 Bob Maple
+// Guidance (C)2017-2025 Bob Maple
 // bobm-matchbox [at] idolum.com
+// Version 20250107
 
 uniform sampler2D  in_front;
 uniform     float  adsk_result_w, adsk_result_h;

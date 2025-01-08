@@ -52,6 +52,7 @@ Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
    </Shader>
 
    <Page Name="Guides" Page="0">
+      <Col Name="Guides" Col="0" Page="0"></Col>
       <Col Name="Width &amp; Height" Col="1" Page="0"></Col>
       <Col Name="Guide Properties" Col="2" Page="0"></Col>
    </Page>
