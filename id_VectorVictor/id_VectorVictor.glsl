@@ -12,6 +12,6 @@ uniform     float adsk_result_w, adsk_result_h;
 void main(void) {
 
  vec4 px = vec4( texture2D( in_front, gl_FragCoord.xy / vec2( adsk_result_w, adsk_result_h ) ) );
- gl_FragColor = vec4( px[0], (px[1] * -1.0)+1.0, px[2], px[3] );
+ gl_FragColor = vec4( px[0], (px[1] * -1.0) + 1.0, px[2], px[3] );
 
 }
