@@ -1,0 +1,13 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_VectorVictor" CommercialUsePermitted="True"
+Description="Inverts the green channel of the input to make motion vector passes from Lightwave 3D compatible with the Motion Blur nodes.
+
+Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
+   <Shader OutputBitDepth="Output" Index="1">
+
+      <!-- Input Configuration -->
+      <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Error"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_NEAREST" GL_TEXTURE_MIN_FILTER="GL_NEAREST">
+      </Uniform>
+
+   </Shader>
+</ShaderNodePreset>
