@@ -1,10 +1,10 @@
 // VectorVictor (C) 2025 Bob Maple
 // bobm-matchbox [at] idolum.com
 //
-// VER: 2025.07.19
+// VER: 2025.07.23
 //
-// Inverts the green channel to make motion vector passes from Lightwave 3D
-// compatible with Motion Blur and StringRay Motion Blur nodes
+// Inverts the the green (V) channel values to make motion vector passes from Lightwave 3D
+// compatible with Motion Blur and StingRay Motion Blur nodes
 
 uniform sampler2D in_front;
 uniform     float adsk_result_w, adsk_result_h;
