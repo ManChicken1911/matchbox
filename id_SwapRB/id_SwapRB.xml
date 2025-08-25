@@ -1,7 +1,7 @@
 <ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_SwapRB" CommercialUsePermitted="True"
 Description="Swaps the Red and Blue channels to fix 12-bit DPX coming from Resolve or other broken apps that write the wrong metadata in their headers.
 
-Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
+Matchbox by Bob Maple">
    <Shader OutputBitDepth="Output" Index="1">
 
       <!-- Input Configuration -->

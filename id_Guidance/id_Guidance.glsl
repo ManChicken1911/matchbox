@@ -1,6 +1,7 @@
-// Guidance (C)2017-2025 Bob Maple
-// bobm-matchbox [at] idolum.com
-// Version 20250107
+// id_Guidance by Bob Maple
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
+
 
 uniform sampler2D  in_front;
 uniform     float  adsk_result_w, adsk_result_h;
@@ -11,9 +12,7 @@ uniform      vec3  guide_color;
 uniform     float  guide_trans;
 uniform      bool  thicker;
 
-
 //
-
 
 void main(void) {
 

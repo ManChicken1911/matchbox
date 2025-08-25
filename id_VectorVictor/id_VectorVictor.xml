@@ -1,7 +1,7 @@
 <ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_VectorVictor" CommercialUsePermitted="True"
 Description="Inverts the green (V) channel values of the input to make motion vector passes from Lightwave 3D compatible with the Motion Blur and Stingray Motion Blur nodes.
 
-Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
+Matchbox by Bob Maple">
    <Shader OutputBitDepth="Output" Index="1">
 
       <!-- Input Configuration -->

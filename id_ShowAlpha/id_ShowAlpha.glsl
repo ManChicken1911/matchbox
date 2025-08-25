@@ -1,8 +1,12 @@
-// id_ShowAlpha (C)2017 Bob Maple
-// bobm-matchbox [at] idolum.com
+// id_ShowAlpha by Bob Maple
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
+
 
 uniform sampler2D  in_front, in_matte;
 uniform     float  adsk_result_w, adsk_result_h;
+
+//
 
 void main(void) {
 

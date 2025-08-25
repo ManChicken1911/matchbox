@@ -1,13 +1,15 @@
-// VectorVictor (C) 2025 Bob Maple
-// bobm-matchbox [at] idolum.com
-//
-// VER: 2025.07.23
-//
+// id_VectorVictor by Bob Maple
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
+
 // Inverts the the green (V) channel values to make motion vector passes from Lightwave 3D
 // compatible with Motion Blur and StingRay Motion Blur nodes
 
+
 uniform sampler2D in_front;
 uniform     float adsk_result_w, adsk_result_h;
+
+//
 
 void main(void) {
 

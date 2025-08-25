@@ -1,8 +1,15 @@
-// Premultiply (C)2015 Bob Maple
-// bobm-matchbox [at] idolum.com
+// id_SwapRB by Bob Maple
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
+
+// Swaps the red and blue channels to fix broken material from some old versions
+// of Resolve and possibly others
+
 
 uniform sampler2D in_front;
 uniform     float adsk_result_w, adsk_result_h;
+
+//
 
 void main(void) {
 

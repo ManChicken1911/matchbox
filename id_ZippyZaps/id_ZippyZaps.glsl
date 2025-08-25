@@ -1,9 +1,11 @@
 // Zippy Zaps by SnoopethDuckDuck - https://www.shadertoy.com/view/XXyGzh
 // Adapted from Shadertoy to Flame by Bob Maple
-// Version 20241211
-//
-// Note: Doesn't really work right on Mac, I have no idea why and no
-// real means to figure it out at the moment
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
+
+// Note: Unsure if this is working correctly on Mac and I have no real means
+// to test it or figure it out at the moment
+
 
 #version 130
 
@@ -12,6 +14,8 @@ uniform float adsk_result_w, adsk_result_h;
 
 uniform float red_bias, green_bias, blue_bias, speed_fps, time_offset, clamp_min, clamp_max;
 uniform bool  clamp_enable;
+
+//
 
 void main( void )
 {

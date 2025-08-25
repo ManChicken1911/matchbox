@@ -1,7 +1,7 @@
 <ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="False" Version="1" Name="id_Solid" CommercialUsePermitted="True"
 Description="A dead-simple color solid generator. Useful inside Image effects for tinting with transfer modes.
 
-Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
+Matchbox by Bob Maple">
 
 	<Shader OutputBitDepth="Output" Index="1">
 

@@ -1,9 +1,13 @@
-// id_CompTrans © 2022 Bob Maple
-// bobm-matchbox [at] idolum.com
+// id_CompTrans by Bob Maple
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
+
 
 uniform sampler2D  in_outgoing, in_incoming, in_inmatte, in_outmatte;
 uniform     float  adsk_result_w, adsk_result_h;
 uniform      bool  premult, out_over_in;
+
+//
 
 void main(void) {
 

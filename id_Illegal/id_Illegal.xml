@@ -3,7 +3,7 @@ Description="Highlights pixels that would be over 1.0 or under 0.0 once converte
 
 NOTE: This is not calibrated to any sort of standard and is only useful as a rough indication of potential QC rejection issues for SD/HD deliverable material containing out-of-gamut colors.
 
-Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)" >
+Matchbox by Bob Maple" >
    <Shader OutputBitDepth="Output" Index="1">
 
       <!-- Input Config -->

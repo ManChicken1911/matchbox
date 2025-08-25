@@ -1,7 +1,7 @@
 <ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1.1" Name="id_Edgy" CommercialUsePermitted="True"
 Description="Highlights RGB 0/0/0 pixels, helpful for revealing blanking issues usually caused by shot stabilization.
 
-Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)" >
+Matchbox by Bob Maple" >
    <Shader OutputBitDepth="Output" Index="1">
 
       <!-- Input Config -->

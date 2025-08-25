@@ -1,7 +1,7 @@
 <ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Splitsville" CommercialUsePermitted="True"
 Description="Takes two inputs and makes a split-screen horizontally or vertically.
 
-Matchbox by Bob Maple (bobm-matchbox [at] idolum.com)">
+Matchbox by Bob Maple">
    <Shader OutputBitDepth="Output" Index="1">
 
       <!-- Tab 1 Col 1: Main Controls -->

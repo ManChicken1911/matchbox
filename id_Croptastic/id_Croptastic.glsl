@@ -1,5 +1,7 @@
-// Croptastic (C)2017 Bob Maple
-// bobm-matchbox [at] idolum.com
+// id_Croptastic by Bob Maple
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
+
 
 uniform sampler2D  in_front, in_matte;
 uniform	    float  crop_l, crop_r, crop_t, crop_b;
@@ -16,7 +18,6 @@ uniform      vec3  aborder_lcolor, aborder_rcolor, aborder_tcolor, aborder_bcolo
 // Global variables
 
 vec4 npx;
-
 
 //
 

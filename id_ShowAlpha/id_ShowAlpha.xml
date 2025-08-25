@@ -1,5 +1,5 @@
 <ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_ShowAlpha" CommercialUsePermitted="True"
-Description="Remaps the matte input to RGB so you can see it on the timeline for instance. That's it.">
+Description="Remaps the matte input to RGB so you can see it from the timeline, for instance. That's it.">
    <Shader OutputBitDepth="Output" Index="1">
 
       <!-- Input Config -->

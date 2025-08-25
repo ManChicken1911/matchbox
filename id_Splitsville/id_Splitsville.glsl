@@ -1,5 +1,6 @@
-// Splitsville ©2024 Bob Maple
-// bobm-matchbox [at] idolum.com
+// id_Splitsville by Bob Maple
+// https://github.com/ManChicken1911/matchbox
+// Version 2025.08.25
 
 // (V) ▲
 //     │
@@ -7,6 +8,7 @@
 //     │
 //     └───────►
 //   0        (U)
+
 
 uniform     float  adsk_result_w, adsk_result_h;
 
@@ -21,6 +23,7 @@ uniform      bool  border;
 uniform      vec3  border_color;
 uniform     float  border_size;
 
+//
 
 void main(void) {
 
