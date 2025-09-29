@@ -1,6 +1,6 @@
 // id_Guidance by Bob Maple
 // https://github.com/ManChicken1911/matchbox
-// Version 2025.08.25
+// Version 2025.09.29
 
 
 uniform sampler2D  in_front;
@@ -24,11 +24,11 @@ void main(void) {
 
     // Figure out where to draw the guides
 
-    float guide_rx = (adsk_result_w / 2.0) + (amount_h / 2.0);
-    float guide_lx = (adsk_result_w / 2.0) - (amount_h / 2.0 - 1);
+    float guide_rx = (adsk_result_w / 2.0) + (amount_h / 2.0 - 1);
+    float guide_lx = (adsk_result_w / 2.0) - (amount_h / 2.0);
 
-    float guide_uy = (adsk_result_h / 2.0) + (amount_v / 2.0);
-    float guide_ly = (adsk_result_h / 2.0) - (amount_v / 2.0 - 1);
+    float guide_uy = (adsk_result_h / 2.0) + (amount_v / 2.0 - 1);
+    float guide_ly = (adsk_result_h / 2.0) - (amount_v / 2.0);
 
     // Add the guide offsets
 
