@@ -1,0 +1,53 @@
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_BoxyBrown" CommercialUsePermitted="True"
+Description="Make boxes with rounded corners - handy for use as a matte.
+
+Matchbox by Bob Maple">
+   <Shader OutputBitDepth="Output" Index="1">
+
+      <!-- Tab 1 Col 1: Box Attributes -->
+      <Uniform Name="box_size" Type="vec2" DisplayName="Size" Tooltip="Box width and height"
+         Inc="1.0" Row="0" Col="0" Page="0" IconType="None">
+         <SubUniform ResDependent="None" Min="0.0" Max="300.0" Default="75"></SubUniform>
+         <SubUniform ResDependent="None" Min="0.0" Max="300.0" Default="75"></SubUniform>
+      </Uniform>
+
+      <Uniform Name="box_color" Type="vec3" DisplayName="Color" ValueType="Colour" Tooltip="Box color"
+         Row="2" Col="0" Page="0">
+         <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
+         <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
+      </Uniform>
+
+      <Uniform Name="corner_rad" Type="float" DisplayName="Roundness" Tooltip="Radius of the corners"
+        Min="0.0" Max="100.0" Inc="1.0" Default="5.0" Row="3" Col="0" Page="0" IconType="None">
+      </Uniform>
+      <Uniform Name="edge_soft" Type="float" DisplayName="Softness" Tooltip="Edge softness"
+        Min="0.0" Max="1.0" Inc="0.001" Default="0.003" Row="4" Col="0" Page="0" IconType="None">
+      </Uniform>
+
+      <!-- Tab 1 Col 2: Offset -->
+      <Uniform Name="offset_xy" Type="vec2" DisplayName="Offset" Tooltip="Pixel offset from center"
+         Inc="1.0" Row="0" Col="1" Page="0" IconType="None">
+         <SubUniform ResDependent="None" Min="-10000.0" Max="10000.0" Inc="1.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Min="-10000.0" Max="10000.0" Inc="1.0" Default="0.0"></SubUniform>
+      </Uniform>
+
+      <!-- Inputs -->
+
+      <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Black" InputType="Front"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
+      </Uniform>
+      <Uniform Name="unused" Type="sampler2D" DisplayName="Unused" Index="1" NoInput="Black" InputColor="86,86,86"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
+      </Uniform>
+      <Uniform Name="in_matte" Type="sampler2D" DisplayName="Matte" Index="2" NoInput="Black" InputType="Matte"
+        Mipmaps="False" GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
+      </Uniform>
+
+   </Shader>
+
+   <Page Name="Box" Page="0">
+      <Col Name="Box Properties" Col="0" Page="0"></Col>
+      <Col Name="Position" Col="1" Page="0"></Col>
+   </Page>
+</ShaderNodePreset>
