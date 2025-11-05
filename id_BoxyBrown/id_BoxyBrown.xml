@@ -12,7 +12,7 @@ Matchbox by Bob Maple">
       </Uniform>
 
       <Uniform Name="box_color" Type="vec3" DisplayName="Color" ValueType="Colour" Tooltip="Box color"
-         Row="2" Col="0" Page="0">
+         Row="2" Col="0" Page="0" UIConditionSource="mask_fg" UIConditionValue="False" UIConditionType="Disable">
          <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
          <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
          <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
@@ -32,6 +32,14 @@ Matchbox by Bob Maple">
          <SubUniform ResDependent="None" Min="-10000.0" Max="10000.0" Inc="1.0" Default="0.0"></SubUniform>
       </Uniform>
 
+      <!-- Tab 1 Col 3: Output Options -->
+      <Uniform Name="mask_fg" Type="bool" DisplayName="Mask Foreground" Default="False"
+         Page="0" Col="2" Row="0">
+      </Uniform>
+      <Uniform Name="premult" Type="bool" DisplayName="Premultiplied" Default="True" UIConditionSource="mask_fg" UIConditionValue="True" UIConditionType="Hide"
+         Page="0" Col="2" Row="1">
+      </Uniform>
+
       <!-- Inputs -->
 
       <Uniform Name="in_front" Type="sampler2D" DisplayName="Front" Index="0" NoInput="Black" InputType="Front"
@@ -49,5 +57,7 @@ Matchbox by Bob Maple">
    <Page Name="Box" Page="0">
       <Col Name="Box Properties" Col="0" Page="0"></Col>
       <Col Name="Position" Col="1" Page="0"></Col>
+      <Col Name="Output Options" Col="2" Page="0"></Col>
    </Page>
+
 </ShaderNodePreset>
