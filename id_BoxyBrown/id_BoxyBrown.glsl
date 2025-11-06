@@ -1,12 +1,12 @@
 // id_BoxyBrown by Bob Maple
 // https://github.com/ManChicken1911/matchbox
-// Version 2025.11.04
+// Version 2025.11.06
 
 
 uniform      vec2  box_size, offset_xy;
 uniform      vec3  box_color;
-uniform     float  edge_soft, corner_rad;
-uniform      bool  mask_fg, premult;
+uniform     float  edge_soft, corner_rad, box_opacity;
+uniform      bool  adj_aspect, mask_fg, premult;
 
 uniform     float  adsk_result_w, adsk_result_h;
 uniform sampler2D  in_front, in_matte;
@@ -38,7 +38,12 @@ void main(void) {
     box_uv.x     *= aspect;
 
     vec2 size     = box_size * 0.01;     // Turn percentage into UV
+
+    if( adj_aspect == true )
+        size.x *= aspect;
+
     size         -= edge_soft / 2.0;
+
 
     // Calculate distance and fill
 
@@ -59,6 +64,6 @@ void main(void) {
         }
     }
     else {
-        gl_FragColor = mix( bg_px, vec4( box_color, 1.0 ), outalpha );
+        gl_FragColor = mix( bg_px, vec4( box_color, 1.0 ), outalpha * (box_opacity * 0.01) );
     }
 }

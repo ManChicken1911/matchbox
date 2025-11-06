@@ -4,32 +4,46 @@ Description="Make boxes with rounded corners - handy for use as a matte.
 Matchbox by Bob Maple">
    <Shader OutputBitDepth="Output" Index="1">
 
-      <!-- Tab 1 Col 1: Box Attributes -->
-      <Uniform Name="box_size" Type="vec2" DisplayName="Size" Tooltip="Box width and height"
-         Inc="1.0" Row="0" Col="0" Page="0" IconType="None">
-         <SubUniform ResDependent="None" Min="0.0" Max="300.0" Default="75"></SubUniform>
-         <SubUniform ResDependent="None" Min="0.0" Max="300.0" Default="75"></SubUniform>
+      <!-- Tab 1 Col 1: Box -->
+      <Uniform Name="box_size" Type="vec2" IconType="None" DisplayName="Size" Tooltip="Box width and height"
+         Page="0" Col="0" Row="0">
+         <SubUniform ResDependent="None" Min="0.0" Max="300.0" Default="75" Inc="0.5"></SubUniform>
+         <SubUniform ResDependent="None" Min="0.0" Max="300.0" Default="75" Inc="0.5"></SubUniform>
+      </Uniform>
+
+      <Uniform Name="adj_aspect" Type="bool" DisplayName="Use Frame Aspect" Default="False"
+         Page="0" Col="0" Row="2">
+      </Uniform>
+
+      <Uniform Name="offset_xy" Type="vec2" IconType="None" DisplayName="Offset" Tooltip="Pixel offset from center"
+         Page="0" Col="0" Row="3">
+         <SubUniform ResDependent="None" Min="-10000.0" Max="10000.0" Inc="1.0" Default="0.0"></SubUniform>
+         <SubUniform ResDependent="None" Min="-10000.0" Max="10000.0" Inc="1.0" Default="0.0"></SubUniform>
+      </Uniform>
+
+      <!-- Tab 1 Col 2: Properties -->
+      <Uniform Name="corner_rad" Type="float" IconType="None" DisplayName="Roundness" Tooltip="Radius of the corners"
+         Min="0.0" Max="100.0" Inc="1.0" Default="5.0"
+         Page="0" Col="1" Row="0">
+      </Uniform>
+
+      <Uniform Name="edge_soft" Type="float" IconType="None" DisplayName="Softness" Tooltip="Edge softness"
+         Min="0.0" Max="1.0" Inc="0.001" Default="0.003"
+         Page="0" Col="1" Row="1">
       </Uniform>
 
       <Uniform Name="box_color" Type="vec3" DisplayName="Color" ValueType="Colour" Tooltip="Box color"
-         Row="2" Col="0" Page="0" UIConditionSource="mask_fg" UIConditionValue="False" UIConditionType="Disable">
+         UIConditionSource="mask_fg" UIConditionValue="False" UIConditionType="Disable"
+         Page="0" Col="1" Row="3">
          <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
          <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
          <SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="1.0"></SubUniform>
       </Uniform>
 
-      <Uniform Name="corner_rad" Type="float" DisplayName="Roundness" Tooltip="Radius of the corners"
-        Min="0.0" Max="100.0" Inc="1.0" Default="5.0" Row="3" Col="0" Page="0" IconType="None">
-      </Uniform>
-      <Uniform Name="edge_soft" Type="float" DisplayName="Softness" Tooltip="Edge softness"
-        Min="0.0" Max="1.0" Inc="0.001" Default="0.003" Row="4" Col="0" Page="0" IconType="None">
-      </Uniform>
-
-      <!-- Tab 1 Col 2: Offset -->
-      <Uniform Name="offset_xy" Type="vec2" DisplayName="Offset" Tooltip="Pixel offset from center"
-         Inc="1.0" Row="0" Col="1" Page="0" IconType="None">
-         <SubUniform ResDependent="None" Min="-10000.0" Max="10000.0" Inc="1.0" Default="0.0"></SubUniform>
-         <SubUniform ResDependent="None" Min="-10000.0" Max="10000.0" Inc="1.0" Default="0.0"></SubUniform>
+      <Uniform Name="box_opacity" Type="float" IconType="None" DisplayName="Opacity" Tooltip="Box opacity"
+         UIConditionSource="mask_fg" UIConditionValue="False" UIConditionType="Disable"
+         Min="0.0" Max="100.0" Inc="1.0" Default="100.0"
+         Page="0" Col="1" Row="4">
       </Uniform>
 
       <!-- Tab 1 Col 3: Output Options -->
@@ -55,8 +69,8 @@ Matchbox by Bob Maple">
    </Shader>
 
    <Page Name="Box" Page="0">
-      <Col Name="Box Properties" Col="0" Page="0"></Col>
-      <Col Name="Position" Col="1" Page="0"></Col>
+      <Col Name="Box" Col="0" Page="0"></Col>
+      <Col Name="Properties" Col="1" Page="0"></Col>
       <Col Name="Output Options" Col="2" Page="0"></Col>
    </Page>
 
