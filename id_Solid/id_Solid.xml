@@ -1,5 +1,5 @@
-<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="False" Version="1" Name="id_Solid" CommercialUsePermitted="True"
-Description="A dead-simple color solid generator. Useful inside Image effects for tinting with transfer modes.
+<ShaderNodePreset SupportsAdaptiveDegradation="0" LimitInputsToTexture="True" Version="1" Name="id_Solid" CommercialUsePermitted="True"
+Description="A dead-simple color solid generator. Useful inside Image effects for tinting footage with transfer modes, or replacing the fill of clip with a matte on the timeline.
 
 Matchbox by Bob Maple">
 
@@ -10,6 +10,14 @@ Matchbox by Bob Maple">
 			<SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="0.165"></SubUniform>
 			<SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="0.259"></SubUniform>
 			<SubUniform ResDependent="None" Min="-1000.0" Max="1000.0" Default="0.248"></SubUniform>
+		</Uniform>
+
+		<Uniform Name="matte_passthru" Type="bool" DisplayName="Matte Passthru" Tooltip="Pass incoming matte to output"
+			Default="false" Row="2" Col="0" Page="0">
+		</Uniform>
+
+		<Uniform Name="in_matte" Type="sampler2D" DisplayName="Matte" Index="0" NoInput="White" InputType="Matte" Mipmaps="False"
+		  GL_TEXTURE_WRAP_T="GL_REPEAT" GL_TEXTURE_WRAP_S="GL_REPEAT" GL_TEXTURE_MAG_FILTER="GL_LINEAR" GL_TEXTURE_MIN_FILTER="GL_LINEAR">
 		</Uniform>
 
 	</Shader>
