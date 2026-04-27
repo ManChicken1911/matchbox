@@ -2,17 +2,16 @@
 <?php
 
 // makeproxy by Bob Maple
+// Version: 2026.0427
 //
 // Takes a PNG image and turns it into an Autodesk .p proxy
-// Currently preferring images at 188x138
+// Currently preferring images at 266x194
 
 if( !extension_loaded("gd") )
 	die( "This script requires the PHP gd extension with PNG support.\n" );
 
 if( $argc < 2 )
-	die( "\nUsage: makeproxy.php <png file>\n Hint: Recommend a 188x138 input image.\n\n" );
-
-$proxy_img = @imagecreatefrompng( $argv[1] );
+	die( "\nUsage: makeproxy.php <png file>\n Hint: Recommend a 266x194 input image.\n\n" );
 
 if( preg_match( "/(.*)\\.png/i", $argv[1], $matches ) )
 	$outname = $matches[1];
@@ -20,37 +19,25 @@ else
 	die( "Input isn't a .png file?\n" );
 
 if( !file_exists( $argv[1] ) )
-	die( "File not found\n" );
+	die( "File not found " . $argv[1] . "\n" );
 
-$infp = fopen( $argv[1], "rb" );
+$proxy_img = @imagecreatefrompng( $argv[1] );
+
+if( $proxy_img === false )
+	die( "Error reading input file (is it really a PNG?)\n" );
 
 $pwidth  = imagesx( $proxy_img );
 $pheight = imagesy( $proxy_img );
 
-if( $pwidth % 4 ) {
-    fclose( $infp );
+if( $pwidth % 4 )
 	die( "error: Image width must be divisible by 4 (is $pwidth)\n" );
-}
 
 $oufp = fopen( $outname . ".p", "wb" );
 
-if( $infp && $oufp ) {
+if( $oufp )
     print( "Converting " . $argv[1] . " to " . $outname . ".p\n" );
-}
-else {
-
-    if( !$infp )
-        print( "Unable to read " . $argv[1] . "\n" );
-    if( !$oufp )
-        print( "Unable to write " . $argv[1] . ".p\n" );
-
-    if( $infp )
-        fclose( $infp );
-    if( $oufp )
-        fclose( $oufp );
-
-    exit;
-}
+else
+    die( "Unable to write " . $outname . ".p\n" );
 
 // Write header - all is little endian
 
@@ -75,13 +62,11 @@ for( $y = 0; $y < $pheight; $y++ ) {
     }
 }
 
-// Close out files
-
-fclose( $infp );
 fclose( $oufp );
 
 print( "Done.\n" );
 
+//
 
 function flipfloat( $val ) {
 
