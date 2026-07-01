@@ -1,6 +1,6 @@
 // id_Splitsville by Bob Maple
 // https://github.com/ManChicken1911/matchbox
-// Version 2025.08.25
+// Version 2026.06.30
 
 // (V) ▲
 //     │
@@ -19,7 +19,7 @@ uniform sampler2D  in_front_a, in_front_b, in_matte_a, in_matte_b;
 uniform      vec2  offset_a, offset_b;
 uniform      bool  autocenter_a, autocenter_b, swap_ab;
 
-uniform      bool  border;
+uniform      bool  border, border_transparent;
 uniform      vec3  border_color;
 uniform     float  border_size;
 
@@ -70,7 +70,7 @@ void main(void) {
         float uvwidth = split_direction == 0 ? border_size / adsk_result_w : border_size / adsk_result_h;
 
         if( uv_pos < (split_amount / 100) + (uvwidth / 2) && uv_pos > (split_amount / 100) - (uvwidth / 2) ) {
-            new_pxl = vec4( border_color, 1.0 );
+            new_pxl = vec4( border_color, border_transparent ? 0.0 : 1.0 );
         }
     }
 
